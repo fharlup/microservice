@@ -42,7 +42,7 @@ services:
       - db_hospital
 
   frontend:
-    build: ./frontend
+    build: ./fe
     container_name: frontend_service
     ports:
       - "8000:80"
