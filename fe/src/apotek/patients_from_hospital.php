@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost:8001/patients";
+$url = "http://HospitalService:8002/patients";
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 

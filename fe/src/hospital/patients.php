@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost:8001/patients";  // API HospitalService Patients endpoint
+$url = "http://HospitalService:8002/patients";  // API HospitalService Patients endpoint
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 

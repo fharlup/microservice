@@ -54,7 +54,7 @@ switch ($method) {
         }
         // Integrasi: ambil data pasien dari HospitalService
         elseif ($path == '/patients-from-hospital') {
-            $patientsData = file_get_contents('http://localhost:8001/patients');
+            $patientsData = file_get_contents('http://HospitalService:8002/patients');
             sendJson(json_decode($patientsData,true));
         }
         else {

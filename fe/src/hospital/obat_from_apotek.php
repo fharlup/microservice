@@ -1,6 +1,6 @@
 <?php
 // frontend-obat-from-apotek.php
-$response = file_get_contents('http://localhost:8001/obat-from-apotek');
+$response = file_get_contents('http://HospitalService:8002/obat-from-apotek');
 $data = json_decode($response, true);
 ?>
 

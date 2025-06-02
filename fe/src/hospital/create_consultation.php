@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'symptoms' => $_POST['symptoms'],
         'diagnosis' => $_POST['diagnosis'],
     ];
-    $url = "http://localhost:8001/consultations";
+    $url = "http://HospitalService:8002/consultations";
 
     $options = [
         'http' => [

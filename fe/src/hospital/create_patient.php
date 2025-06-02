@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'address' => $_POST['address'],
         'phone' => $_POST['phone'],
     ];
-    $url = "http://localhost:8001/patients";
+    $url = "http://HospitalService:8002/patients";
 
     $options = [
         'http' => [
