@@ -26,7 +26,7 @@ services:
       - hospital_data:/var/lib/mysql
 
   apotek:
-    build: ./apotek
+    build: ./ApotekService
     container_name: apotek_service
     ports:
       - "8002:80"
@@ -34,7 +34,7 @@ services:
       - db_apotek
 
   hospital:
-    build: ./hospital
+    build: ./HospitalService
     container_name: hospital_service
     ports:
       - "8001:80"
