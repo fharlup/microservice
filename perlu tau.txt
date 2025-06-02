@@ -1,0 +1,72 @@
+CREATE DATABASE apotek_db;
+
+USE apotek_db;
+
+CREATE TABLE obat (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  stock INT,
+  price DECIMAL(10,2)
+);
+
+CREATE TABLE suppliers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  contact VARCHAR(50)
+);
+
+CREATE TABLE orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  obat_id INT,
+  quantity INT,
+  order_date DATE
+);
+
+CREATE TABLE purchase_history (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  patient_id INT,
+  medicine_name VARCHAR(100),
+  quantity INT,
+  purchase_date DATE
+);
+CREATE DATABASE hospital_db;
+
+USE hospital_db;
+
+CREATE TABLE patients (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  age INT,
+  address VARCHAR(255),
+  phone VARCHAR(20)
+);
+
+CREATE TABLE doctors (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  specialization VARCHAR(100)
+);
+
+CREATE TABLE consultations (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  patient_id INT,
+  doctor_id INT,
+  symptoms TEXT,
+  diagnosis TEXT,
+  date DATE
+);
+
+CREATE TABLE prescriptions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  consultation_id INT,
+  medicine_name VARCHAR(100),
+  dosage VARCHAR(50)
+);
+
+
+cara run masuk ke folder masing masing
+lalu jalanin
+php -S localhost:8002 apotekService.php
+php -S localhost:8001 hospitalService.php
+ untuk fe
+php -S localhost:8000
