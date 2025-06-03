@@ -1,5 +1,5 @@
 <?php
-$url = "http://HospitalService:8002/prescriptions";
+$url = "http://hospital/prescriptions";
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 if (isset($data['data']) && is_array($data['data'])) {

@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'quantity' => (int)$_POST['quantity'],
         'order_date' => $_POST['order_date'],
     ];
-    $url = "http://ApotekService:8002/orders";
+    $url = "http://apotek/orders";
 
     $options = [
         'http' => [

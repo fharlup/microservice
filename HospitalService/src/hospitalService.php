@@ -72,7 +72,7 @@ switch ($method) {
         }
         // Integrasi: ambil data obat dari ApotekService
         elseif ($path == '/obat-from-apotek') {
-            $obatData = file_get_contents('http://ApotekService:8002/obat');
+            $obatData = file_get_contents('http://apotek/obat');
             sendJson(json_decode($obatData, true));
         }
         else {

@@ -1,5 +1,5 @@
 <?php
-$url = "http://ApotekService:8002/purchase-history"; // URL sudah benar
+$url = "http://apotek/purchase-history"; // URL sudah benar
 $response = file_get_contents($url);
 $data = json_decode($response, true); // decode JSON
 

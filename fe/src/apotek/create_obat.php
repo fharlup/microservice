@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'stock' => (int)$_POST['stock'],
         'price' => (float)$_POST['price'],
     ];
-    $url = "http://ApotekService:8002/obat";
+    $url = "http://apotek/obat";
 
     $options = [
         'http' => [

@@ -1,16 +1,15 @@
 <?php
 header('Content-Type: application/json');
 
-// Koneksi MySQL ApotekService
-$mysqli = new mysqli("localhost", "root", "", "apotek_db");
-if ($mysqli->connect_errno) {
-    http_response_code(500);
-    echo json_encode(['status'=>'error', 'message'=>'Failed to connect to database']);
-    exit();
-}
+// Koneksi MySQL ApotekService$host = 'mysql-apotek';
+$db = 'apotek_db';
+$user = 'root';
+$pass = 'Bookselfpakemas123';
 
-$method = $_SERVER['REQUEST_METHOD'];
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$request = $_SERVER['REQUEST_URI'];
 
 function sendJson($data, $code = 200) {
     http_response_code($code);
@@ -54,7 +53,7 @@ switch ($method) {
         }
         // Integrasi: ambil data pasien dari HospitalService
         elseif ($path == '/patients-from-hospital') {
-            $patientsData = file_get_contents('http://HospitalService:8002/patients');
+            $patientsData = file_get_contents('http://hospital/patients');
             sendJson(json_decode($patientsData,true));
         }
         else {
