@@ -1,29 +1,37 @@
 version: '3.8'
 
+networks:
+  backend_net:
+    driver: bridge
+
 services:
   db_apotek:
     image: mysql:8
     container_name: db_apotek
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Bookselfpakemas1223
+      MYSQL_ROOT_PASSWORD: a
       MYSQL_DATABASE: apotek_db
     ports:
       - "3307:3306"
     volumes:
       - apotek_data:/var/lib/mysql
+    networks:
+      - backend_net
 
   db_hospital:
     image: mysql:8
     container_name: db_hospital
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Bookselfpakemas1223
+      MYSQL_ROOT_PASSWORD: a
       MYSQL_DATABASE: hospital_db
     ports:
       - "3308:3306"
     volumes:
       - hospital_data:/var/lib/mysql
+    networks:
+      - backend_net
 
   apotek:
     build: ./ApotekService
@@ -32,6 +40,8 @@ services:
       - "8002:80"
     depends_on:
       - db_apotek
+    networks:
+      - backend_net
 
   hospital:
     build: ./HospitalService
@@ -40,6 +50,8 @@ services:
       - "8001:80"
     depends_on:
       - db_hospital
+    networks:
+      - backend_net
 
   frontend:
     build: ./fe
@@ -49,6 +61,8 @@ services:
     depends_on:
       - apotek
       - hospital
+    networks:
+      - backend_net
 
 volumes:
   apotek_data:

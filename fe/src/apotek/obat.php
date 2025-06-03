@@ -1,5 +1,5 @@
 <?php
-$url = "http://apotek/obat";
+$url = "http://apotek_service/obat";
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 

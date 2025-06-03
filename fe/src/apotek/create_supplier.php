@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'contact' => $_POST['contact'],
         'address' => $_POST['address'],
     ];
-    $url = "http://apotek/suppliers";
+    $url = "http://apotek_service/suppliers";
 
     $options = [
         'http' => [

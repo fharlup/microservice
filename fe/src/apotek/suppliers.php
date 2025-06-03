@@ -1,5 +1,5 @@
 <?php
-$url = "http://apotek/suppliers";
+$url = "http://apotek_service/suppliers";
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 
